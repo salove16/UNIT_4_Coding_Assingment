@@ -1,13 +1,14 @@
 {
-  "name": "day2",
+  "name": "day3",
   "version": "1.0.0",
-  "description": "Unit-4 day 2 assingment",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-     "server":"nodemon index.js"
+    "server":"nodemon index.js"
   },
-  "author": "shashank shalabh",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3"
