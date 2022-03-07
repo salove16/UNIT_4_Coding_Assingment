@@ -1,8 +1,8 @@
 use assignment
 db.createCollection("users")
-db.users.insert()
+db.users.insert({})
 db.users.find({}).preety()
-db.users.insert([{},{},{},{},{},{},{},{},{}])
+db.users.insertMany([{},{},{},{},{},{},{},{},{}])
 db.users.find({}).preety()
 db.users.findOne({}).preety()
 db.users.update({ "_id" : ObjectId("622649d07401a7833a01bfd3"},{$set{"age" : 20}})
