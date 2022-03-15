@@ -30,7 +30,7 @@ router.post("/",async(req,res)=>{
     to: `${user.email}`, // list of receivers
     subject:`Welcome to ABC system ${user.firstName} ${user.lastName}`, // Subject line
     text: `Hi ${user.firstName}, Please confirm your email address`, // plain text body
-    // html: "<b>`Hi ${first_name}, Please confirm your email address`</b>", // html body
+    
   });
   transporter.sendMail({
     from: '"abcsystem" <abc@system.com>', // sender address
