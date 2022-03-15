@@ -74,8 +74,8 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model("user", userSchema)
 
 const checkoutSchema = new mongoose.Schema({
-    checkedOutTime: {},
-    checkedInTime: {},
+    checkedOutTime: {type:Date,default:"null",required:true},
+    checkedInTime: {type:Date,default:"null",required:true},
     userId: { type: mongoose.Schema.Types.ObjectId, ref: "user", required: true, unique: true },
     book_id: { type: mongoose.Schema.Types.ObjectId, ref: "book", required: true, unique: true }
 },
@@ -201,6 +201,42 @@ app.post("/section", async (req, res) => {
     }
 })
 
+
+
+
+app.get("/checkout", async (req, res) => {
+    try {
+        const checkout = await Checkout.find().lean().exec();
+        return res.status(200).send(checkout);
+    } catch (err) {
+        return res.status(500).send({ message: err.message });
+    }
+})
+
+
+app.post("/checkout", async (req, res) => {
+
+    try {
+        const checkout = await Checkout.create(req.body)
+
+        return res.status(201).send(checkout);
+
+    } catch (err) {
+        return res.status(500).send({ message: err.message });
+    }
+})
+
+app.patch("/checkout/:id/checkout", async (req, res) => {
+
+    try {
+        const checkout = await Checkout.findByIdAndUpdate(req.params.id,req.body,{new:true}).lean().exec()
+
+        return res.status(201).send(checkout);
+
+    } catch (err) {
+        return res.status(500).send({ message: err.message });
+    }
+})
 
 app.listen(4000, async () => {
     try {
