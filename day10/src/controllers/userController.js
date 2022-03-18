@@ -30,7 +30,7 @@ router.get("/", async (req, res) => {
       return res.status(500).send({ message: err.message });
     }
   });
-  router.post("/multi", upload.array("profilePic",5), async (req, res) => {
+  router.post("/multi", gallery.array("profilePic",5), async (req, res) => {
     try {
 
       //   const user = await User.create(req.body)
