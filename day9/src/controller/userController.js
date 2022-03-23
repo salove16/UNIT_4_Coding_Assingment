@@ -33,6 +33,7 @@ body("email")
   body("pincode")
   .not()
   .isEmpty()
+  .isNumeric()
   .isLength({min:6,max:6})
   .withMessage("please enter a valid pincode"),
   body("age")
